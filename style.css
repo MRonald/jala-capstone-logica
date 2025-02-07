@@ -1,0 +1,29 @@
+.characterImage {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: darkslategrey;
+    margin: 10px;
+}
+
+.player section {
+    display: block;
+}
+
+.character {
+    display: flex;
+    align-items: center;
+}
+
+.character p {
+    display: block;
+    margin: 5px;
+}
+
+.character .speech {
+    height: 20px;
+    width: 50vw;
+    border-radius: 10px;
+    border: solid 1px black;
+    background-color: gray;
+}
