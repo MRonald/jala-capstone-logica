@@ -1,78 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
-<head lang="pt-br">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Interface</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Mistério do Detetive</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1 class="title">Jogo de Detetive</h1>
+    <div class="container">
+        <header>
+            <h1>O Mistério do Detetive</h1>
+            <p class="subtitle">Você é um dos suspeitos. Prove sua inocência interrogando os outros...</p>
+        </header>
 
-    <p class="narrator"> ---> Falas do narrador <--- </p>
+        <div class="main-content">
+            <div id="characters-grid">
+                <div class="character-card" data-id="1" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                    <div class="character-image">
+                        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61" alt="Detective Blake">
+                    </div>
+                    <div class="character-info">
+                        <h3>Detective Blake</h3>
+                        <p class="role">Investigador Privado</p>
+                        <p class="description">Um detetive experiente com mente afiada.</p>
+                    </div>
+                </div>
 
-            <div class="character player">
-                <div class="characterImage"></div>
+                <div class="character-card" data-id="2" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                    <div class="character-image">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Lady Victoria">
+                    </div>
+                    <div class="character-info">
+                        <h3>Lady Victoria</h3>
+                        <p class="role">Socialite</p>
+                        <p class="description">Uma socialite misteriosa com muitos segredos.</p>
+                    </div>
+                </div>
 
-                <div class="buttons">
-                    <section class="questionsSection">
-                        <button class="question">Pergunta 1</button>
-                        <button class="question">Pergunta 2</button>
-                        <button class="question">Pergunta 3</button>
-                    </section>
-                    <section class="targetsSection">
-                        <button class="target1">Suspeito 1</button>
-                        <button class="target2">Suspeito 2</button>
-                        <button class="target3">Suspeito 3</button>
-                        <button class="target4">Suspeito 4</button>
-                        <button class="target5">Suspeito 5</button>
-                    </section>
+                <div class="character-card" data-id="3" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                    <div class="character-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Professor Morgan">
+                    </div>
+                    <div class="character-info">
+                        <h3>Professor Morgan</h3>
+                        <p class="role">Acadêmico</p>
+                        <p class="description">Uma mente brilhante escondendo conhecimentos sombrios.</p>
+                    </div>
+                </div>
+
+                <div class="character-card" data-id="4" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                    <div class="character-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956" alt="Ms. Rose">
+                    </div>
+                    <div class="character-info">
+                        <h3>Ms. Rose</h3>
+                        <p class="role">Artista</p>
+                        <p class="description">Uma artista talentosa com um passado questionável.</p>
+                    </div>
+                </div>
+
+                <div class="character-card" data-id="5" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                    <div class="character-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Mr. Sterling">
+                    </div>
+                    <div class="character-info">
+                        <h3>Mr. Sterling</h3>
+                        <p class="role">Empresário</p>
+                        <p class="description">Um empresário rico com conexões poderosas.</p>
+                    </div>
+                </div>
+
+                <div class="character-card player-card" data-id="6" data-bs-toggle="modal"
+                    data-bs-target="#questionsModal">
+                    <div class="character-image">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                            alt="Jogador">
+                    </div>
+                    <div class="character-info">
+                        <h3>Jogador</h3>
+                        <p class="role">Suspeito</p>
+                        <p class="description">Você precisa provar sua inocência.</p>
+                    </div>
                 </div>
             </div>
 
-            <section class="castSection">
-                <div class="character character1">
-                    <div class="characterImage"></div>
-                    <div>
-                        <p class="name">Suspeito 1</p>
-                        <p class="speech"></p>
+            <!-- Modal -->
+            <div class="modal fade" id="questionsModal" tabindex="-1" aria-labelledby="questionsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content" id="dialogue-container">
+                        <div class="modal-header">
+                            <button id="back-button">← Voltar aos Personagens</button>
+                            <h2 id="dialogue-title">Interrogar <span id="selected-character">Nome do Personagem</span>
+                            </h2>
+                        </div>
+                        <div class="modal-body dialogue-options">
+                            <div class="dialogue-option">Onde você estava na noite do incidente?</div>
+                            <div class="dialogue-option">O que sabe sobre o artefato desaparecido?</div>
+                            <div class="dialogue-option">Alguém pode confirmar seu paradeiro?</div>
+                            <div class="dialogue-option">Qual sua relação com a vítima?</div>
+                        </div>
                     </div>
                 </div>
-                <div class="character character2">
-                    <div class="characterImage"></div>
-                    <div>
-                        <p class="name">Suspeito 2</p>
-                        <p class="speech"></p>
-                    </div>
-                </div>
-                <div class="character character3">
-                    <div class="characterImage"></div>
-                    <div>
-                        <p class="name">Suspeito 3</p>
-                        <p class="speech"></p>
-                    </div>
-                </div>
-                <div class="character character4">
-                    <div class="characterImage"></div>
-                    <div>
-                        <p class="name">Suspeito 4</p>
-                        <p class="speech"></p>
-                    </div>
-                </div>
-                <div class="character character5">
-                    <div class="characterImage"></div>
-                    <div>
-                        <p class="name">Suspeito 5</p>
-                        <p class="speech"></p>
-                    </div>
-                </div>
-            </section>
+            </div>
 
-            <script src="" async defer></script>
+            <div id="notes-container">
+                <h2 id="notes-title">Anotações do Caso</h2>
+                <textarea id="notes-textarea"
+                    placeholder="Use este espaço para suas anotações sobre o caso..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
