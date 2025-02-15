@@ -7,6 +7,12 @@
     box-sizing: border-box;
 }
 
+.history {
+    margin-bottom: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #1A1F2C;
@@ -51,7 +57,7 @@ h1 {
     overflow-y: auto;
     height: 75vh;
     width: 100%;
-    margin: 1.5rem 0 0 0;
+    margin: 0px;
 }
 
 #characters-grid {

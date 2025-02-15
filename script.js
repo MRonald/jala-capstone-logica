@@ -14,7 +14,7 @@ async function carregarSituacao() {
         const situacoes = Object.keys(dados.situacoes);
         const sorteada = situacoes[Math.floor(Math.random() * situacoes.length)];
         situacaoAtual = dados.situacoes[sorteada];
-        document.getElementById("notes-title").innerText = `FBF's encontradas (${sorteada})`;
+        document.getElementById("notes-title").innerText = `FBF's encontradas`;
     } catch (error) {
         console.error("Erro ao carregar as situações:", error);
     }
@@ -35,7 +35,7 @@ function mostrarDialogo(nomePersonagem, cargoPersonagem) {
     const modalBody = document.querySelector(".modal-body");
     modalChar.innerHTML = nomePersonagem
     modalBody.innerHTML = "";
-    
+
     if (cargoPersonagem === "Marido") {
         modalBody.innerHTML = `<p>O que eu fiz?</p>`;
     } else if (situacaoAtual[cargoPersonagem]) {
