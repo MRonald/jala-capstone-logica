@@ -1,10 +1,18 @@
 let situacaoAtual = null;
+let personagensQuestionados = 0;
 let fbfDimacs = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // $('#historyModal').modal('show');
     await carregarSituacao();
     configurarEventosPersonagens();
     configurarBotaoResolver();
+});
+
+$('#historyModal').on('shown.bs.modal', function () {
+    let text = $("#storyText").data("full-text");
+    $("#storyText").text('');
+    efeitoDeEscrever("#storyText", text, 40);
 });
 
 async function carregarSituacao() {
@@ -14,9 +22,8 @@ async function carregarSituacao() {
         const situacoes = Object.keys(dados.situacoes);
         const sorteada = situacoes[Math.floor(Math.random() * situacoes.length)];
         situacaoAtual = dados.situacoes[sorteada];
-        document.getElementById("notes-title").innerText = `FBF's encontradas`;
     } catch (error) {
-        console.error("Erro ao carregar as situações:", error);
+        alert("Erro ao escolher uma situação. Recarregue a página.");
     }
 }
 
@@ -24,32 +31,42 @@ function configurarEventosPersonagens() {
     document.querySelectorAll(".character-card").forEach(card => {
         card.addEventListener("click", () => {
             const nomePersonagem = card.querySelector("h3").innerText;
-            const cargoPersonagem = card.querySelector("h4").innerText
-            mostrarDialogo(nomePersonagem, cargoPersonagem);
+            const cargoPersonagem = card.querySelector("h4").innerText;
+            mostrarDialogo(nomePersonagem, cargoPersonagem, card);
         });
     });
 }
 
-function mostrarDialogo(nomePersonagem, cargoPersonagem) {
-    const modalChar = document.querySelector(".dialogue-title");
-    const modalBody = document.querySelector(".modal-body");
-    modalChar.innerHTML = nomePersonagem
-    modalBody.innerHTML = "";
+function mostrarDialogo(nomePersonagem, cargoPersonagem, card) {
+    const questionsModal = $("#questionsModal");
+
+    questionsModal.find(".dialogue-title").text(`${nomePersonagem} - ${cargoPersonagem}`);
+    const modalBody = questionsModal.find(".modal-body");
 
     if (cargoPersonagem === "Marido") {
-        modalBody.innerHTML = `<p>O que eu fiz?</p>`;
+        modalBody.html(`<p>Meu Deus, o que será que eu fiz? E lá vamos nós de novo...</p>`);
     } else if (situacaoAtual[cargoPersonagem]) {
         const fala = situacaoAtual[cargoPersonagem].fala;
-        const fbf = situacaoAtual[cargoPersonagem].fbf;
-        const dimacs = situacaoAtual[cargoPersonagem].dimacs;
 
-        modalBody.innerHTML = `<p>${fala}</p>`;
-        document.getElementById("notes-text").innerHTML += `<p>${fbf}</p>`;
-        fbfDimacs.push(dimacs);
+        modalBody.html(`<p>${fala}</p>`);
+
+        if (!$(card).data('opened')) {
+            const fbf = situacaoAtual[cargoPersonagem].fbf;
+            const dimacs = situacaoAtual[cargoPersonagem].dimacs;
+
+            fbfDimacs.push(dimacs);
+
+            document.getElementById("notes-text").innerHTML += `<p><b>${nomePersonagem}:</b> ${fbf}</p>`;
+
+            $(card).data('opened', 'true');
+            // console.log($(card), $(card).find('checkmark'));
+            $(card).find('.checkmark').removeClass('d-none');
+
+            personagensQuestionados++;
+        }
     }
 
-    const modal = new bootstrap.Modal(document.getElementById("questionsModal"));
-    modal.show();
+    questionsModal.modal('show');
 }
 
 function configurarBotaoResolver() {
@@ -61,4 +78,22 @@ function configurarBotaoResolver() {
 function resolverCaso() {
     console.log("FBFs em formato DIMACS:", fbfDimacs);
     alert("Resolução do caso não implementada ainda!");
+}
+
+function efeitoDeEscrever(element, text, speed) {
+    let i = 0;
+
+    function escrevendo() {
+        if (i < text.length) {
+            if (text.charAt(i) === '|') {
+                $(element).append('<br>');
+            } else {
+                $(element).append(text.charAt(i));
+            }
+            i++;
+            setTimeout(escrevendo, speed);
+        }
+    }
+
+    escrevendo();
 }
