@@ -231,6 +231,7 @@ h1 {
     font-family: 'Inter', sans-serif;
     resize: none;
     line-height: 1.6;
+    overflow-y: auto;
 }
 
 #notes-text:focus {
