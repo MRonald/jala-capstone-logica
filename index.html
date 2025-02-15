@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Mistério do Detetive</title>
+    <title>O Que Eu Fiz de Errado?</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
@@ -13,105 +13,99 @@
 <body>
     <div class="container">
         <header>
-            <h1>O Mistério do Detetive</h1>
-            <p class="subtitle">Você é um dos suspeitos. Prove sua inocência interrogando os outros...</p>
+            <h1>O Que Eu Fiz de Errado?</h1>
+            <p class="subtitle">Descubra o porquê de sua esposa estar irritada!</p>
         </header>
 
         <div class="main-content">
             <div id="characters-grid">
-                <div class="character-card" data-id="1" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                <div class="character-card" data-id="1">
                     <div class="character-image">
-                        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61" alt="Detective Blake">
+                        <img src="https://mvbueno.github.io/assets/img/profile.png" alt="Marcos">
                     </div>
                     <div class="character-info">
-                        <h3>Detective Blake</h3>
-                        <p class="role">Investigador Privado</p>
-                        <p class="description">Um detetive experiente com mente afiada.</p>
+                        <h3>Marcos</h3>
+                        <h4>Marido</h4>
+                        <p class="description">Marido dedicado e profissional bem sucedido.</p>
                     </div>
                 </div>
 
-                <div class="character-card" data-id="2" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                <div class="character-card" data-id="2">
                     <div class="character-image">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Lady Victoria">
+                        <img src="https://png.pngtree.com/thumb_back/fw800/background/20220908/pngtree-funny-young-teen-boy-funny-face-youth-photo-image_567875.jpg" alt="Vinicius">
                     </div>
                     <div class="character-info">
-                        <h3>Lady Victoria</h3>
-                        <p class="role">Socialite</p>
-                        <p class="description">Uma socialite misteriosa com muitos segredos.</p>
+                        <h3>Vinicius</h3>
+                        <h4>Filho mais velho</h4>
+                        <p class="description">Não ajuda em nada.</p>
                     </div>
                 </div>
 
-                <div class="character-card" data-id="3" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                <div class="character-card" data-id="3">
                     <div class="character-image">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Professor Morgan">
+                        <img src="https://png.pngtree.com/thumb_back/fw800/background/20220908/pngtree-funny-young-teen-boy-funny-face-youth-photo-image_567875.jpg" alt="Filho mais novo">
                     </div>
                     <div class="character-info">
-                        <h3>Professor Morgan</h3>
-                        <p class="role">Acadêmico</p>
+                        <h3>Filho mais novo</h3>
+                        <h4>Filho mais novo</h4>
                         <p class="description">Uma mente brilhante escondendo conhecimentos sombrios.</p>
                     </div>
                 </div>
 
-                <div class="character-card" data-id="4" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                <div class="character-card" data-id="4">
                     <div class="character-image">
                         <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956" alt="Ms. Rose">
                     </div>
                     <div class="character-info">
                         <h3>Ms. Rose</h3>
-                        <p class="role">Artista</p>
+                        <h4>Sogra</h4>
                         <p class="description">Uma artista talentosa com um passado questionável.</p>
                     </div>
                 </div>
 
-                <div class="character-card" data-id="5" data-bs-toggle="modal" data-bs-target="#questionsModal">
+                <div class="character-card" data-id="5">
                     <div class="character-image">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Mr. Sterling">
                     </div>
                     <div class="character-info">
                         <h3>Mr. Sterling</h3>
-                        <p class="role">Empresário</p>
+                        <h4>Cunhado</h4>
                         <p class="description">Um empresário rico com conexões poderosas.</p>
                     </div>
                 </div>
 
-                <div class="character-card player-card" data-id="6" data-bs-toggle="modal"
-                    data-bs-target="#questionsModal">
+                <div class="character-card" data-id="6">
                     <div class="character-image">
-                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                            alt="Jogador">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Mr. Sterling">
                     </div>
                     <div class="character-info">
-                        <h3>Jogador</h3>
-                        <p class="role">Suspeito</p>
-                        <p class="description">Você precisa provar sua inocência.</p>
+                        <h3>Mr. Sterling</h3>
+                        <h4>Amigo</h4>
+                        <p class="description">Um empresário rico com conexões poderosas.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="questionsModal" tabindex="-1" aria-labelledby="questionsModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="questionsModal" tabindex="-1" aria-labelledby="questionsModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content" id="dialogue-container">
                         <div class="modal-header">
-                            <button id="back-button">← Voltar aos Personagens</button>
-                            <h2 id="dialogue-title">Interrogar <span id="selected-character">Nome do Personagem</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h2 class="dialogue-title">
+                                <!-- O nome do personagem será inserido aqui -->
                             </h2>
                         </div>
                         <div class="modal-body dialogue-options">
-                            <div class="dialogue-option">Onde você estava na noite do incidente?</div>
-                            <div class="dialogue-option">O que sabe sobre o artefato desaparecido?</div>
-                            <div class="dialogue-option">Alguém pode confirmar seu paradeiro?</div>
-                            <div class="dialogue-option">Qual sua relação com a vítima?</div>
+                            <!-- As falas serão inseridas dinamicamente aqui -->
                         </div>
                     </div>
                 </div>
             </div>
 
             <div id="notes-container">
-                <h2 id="notes-title">Anotações do Caso</h2>
-                <textarea id="notes-textarea"
-                    placeholder="Use este espaço para suas anotações sobre o caso..."></textarea>
+                <h2 id="notes-title">FBF's encontradas</h2>
+                <div id="notes-text" placeholder="Use este espaço para suas anotações sobre o caso..."></div>
             </div>
         </div>
     </div>

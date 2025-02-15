@@ -202,7 +202,7 @@ h1 {
     color: #e2e8f0;
 }
 
-#notes-textarea {
+#notes-text {
     flex: 1;
     background: #1f2937;
     border: 1px solid #4a5568;
@@ -214,7 +214,7 @@ h1 {
     line-height: 1.6;
 }
 
-#notes-textarea:focus {
+#notes-text:focus {
     outline: none;
     border-color: #60a5fa;
 }

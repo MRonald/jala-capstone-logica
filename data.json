@@ -1,0 +1,40 @@
+{
+    "situacoes": {
+      "Marcos deixou a toalha em cima da cama": {
+        "Filho mais velho": {"fala": "Tem a ver com suas coisas.","fbf": "P ∨ R ∨ S ∨ U", "dimacs": "[1, 3, 4, 5]"},
+        "Filho mais novo": {"fala": "Vi a mamãe sair do quarto furiosa hoje de manhã.", "fbf": "P ∨ Q", "dimacs": "[1, 2]"},
+        "Sogra": {"fala": "Ela odeia quando você só lava a louça e não faz o restante dos serviços.", "fbf": "¬U", "dimacs": "[-5]"},
+        "Cunhado": {"fala": "Se você estava lavando a louça, então é claro que não pisou onde ela estava passando o pano.", "fbf": "¬U → ¬R", "dimacs": "[5, -3]"},
+        "Amigo": {"fala": "Você nunca esquece de levar o lixo para fora e sempre lava os pratos com zelo.", "fbf": "¬S ∧ ¬U", "dimacs": "[-4, -5]"}
+      },
+      "Marcos pisou onde a esposa estava passando pano": {
+        "Filho mais velho": {"fala": "Se você prestasse mais atenção no que faz, não estaria aqui perguntando isso.", "fbf": "R ∨ P ∨ S", "dimacs": "[1, 3, 4]"},
+        "Filho mais novo": {"fala": "Foi algo que aconteceu hoje de manhã.", "fbf": "¬Q", "dimacs": "[-2]"},
+        "Sogra": {"fala": "Tem a ver com limpeza da casa.", "fbf": "(R ∨ S ∨ U) ∧ (¬Q) ∧ (¬P)", "dimacs": "[3, 4, 5]"},
+        "Cunhado": {"fala": "Acho que foi algo que você fez sem perceber.", "fbf": "R ∨ P", "dimacs": "[1, 3]"},
+        "Amigo": {"fala": "Ao menos você tirou o lixo ontem.", "fbf": "¬S", "dimacs": "[-4]"}
+      },
+      "Marcos não tirou o lixo para fora": {
+        "Filho mais velho": {"fala": "Foi algo que você fez aqui em casa, não tem nada a ver com sonhos.", "fbf": "(¬Q) ∧ (P ∨ R ∨ S ∨ U)", "dimacs": "[-2]"},
+        "Filho mais novo": {"fala": "Foi algo relacionado à limpeza, mas não foi dentro de casa.", "fbf": "(R ∨ S ∨ U) ∧ (¬U) ∧ (¬R)", "dimacs": "[3, 4, 5]"},
+        "Sogra": {"fala": "Ela reclamou que você não faz algo que tinha prometido.", "fbf": "S ∨ U", "dimacs": "[4, 5]"},
+        "Cunhado": {"fala": "Se Marcos pisou onde ela estava passando pano, então ele não deixaria a toalha jogada na cama.", "fbf": "R → ¬P", "dimacs": "[-3, -2]"},
+        "Amigo": {"fala": "Bom, a casa estava limpa, mas o lixo estava cheio.", "fbf": "S", "dimacs": "[5]"}
+      },
+      "A esposa sonhou que Marcos a traiu": {
+        "Filho mais velho": {"fala": "Ela já estava bastante chateada assim que acordou.", "fbf": "¬(P ∨ R ∨ S ∨ U)", "dimacs": "[2]"},
+        "Filho mais novo": {"fala": "Vi a mamãe sair do quarto furiosa hoje de manhã.", "fbf": "(P ∨ Q) ∧ ¬(R ∨ S ∨ U)", "dimacs": "[1, 2]"},
+        "Sogra": {"fala": "Ela me confidenciou que sonhou com uma traição sua. Converse com ela.", "fbf": "Q", "dimacs": "[2]"},
+        "Cunhado": {"fala": "Se Marcos não lavou os pratos e também esqueceu de levar o lixo para fora, então ele definitivamente não teria pisado onde estavam passando pano, porque ele não se levantou.", "fbf": "(U ∧ S) → ¬R", "dimacs": "[-3, -4, -5]"},
+        "Amigo": {"fala": "Ah, cara, isso não tem nada a ver com o que você fez!", "fbf": "Q", "dimacs": "[2]"}
+      },
+      "Marcos não lavou os pratos": {
+        "Filho mais velho": {"fala": "Foi algo relacionado à cozinha.", "fbf": "U ∧ ¬(P ∨ Q ∨ R ∨ S)", "dimacs": "[-1, -2, -3, -4]"},
+        "Filho mais novo": {"fala": "Você esqueceu de fazer algo que tinha prometido ontem à noite.", "fbf": "S ∨ U", "dimacs": "[4, 5]"},
+        "Sogra": {"fala": "Ela ficou chateada porque a pia estava cheia de louça suja.", "fbf": "U", "dimacs": "[5]"},
+        "Cunhado": {"fala": "Se você não lavou os pratos, a pia ficou cheia, né?", "fbf": "U", "dimacs": "[5]"},
+        "Amigo": {"fala": "Acho que você esqueceu de algo importante na cozinha.", "fbf": "U", "dimacs": "[5]"}
+      }
+    }
+  }
+  
