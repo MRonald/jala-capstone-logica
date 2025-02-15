@@ -1,4 +1,5 @@
 let situacaoAtual = null;
+let sorteada = ""; // Declarada globalmente
 let personagensQuestionados = 0;
 let casoResolvido = false;
 let fbfDimacs = [];
@@ -21,7 +22,7 @@ async function carregarSituacao() {
         const response = await fetch("data.json");
         const dados = await response.json();
         const situacoes = Object.keys(dados.situacoes);
-        const sorteada = situacoes[Math.floor(Math.random() * situacoes.length)];
+        sorteada = situacoes[Math.floor(Math.random() * situacoes.length)]; // Atribuição à variável global
         situacaoAtual = dados.situacoes[sorteada];
     } catch (error) {
         alert("Erro ao escolher uma situação. Recarregue a página.");
@@ -83,6 +84,10 @@ function resolverCaso() {
     $('#notes-text').append('<p>Para resolver essa questão podemos usar o <a href="https://pysathq.github.io/" target="_blank">SAT Solver</a>.</p>');
     $('#notes-text').append('<p>Precisamos antes aplicar a conjunção nas fórmulas acima e converter toda a expressão para FNC.</p>');
     $('#notes-text').append(`<p>A expressão final no formato DIMACS fica: <b>${fbfDimacs.join(", ")}</b></p>`);
+    
+    // Exibindo apenas a situação sorteada
+    $('#notes-text').append(`<p><b>Situação:</b> ${sorteada}</p>`);
+    
     $('#notes-text').append(`
         <div class="d-flex">
             <button type="button" class="btn btn-primary me-2" onclick="copiarDimacsFinal()">Copiar DIMACS</button>
