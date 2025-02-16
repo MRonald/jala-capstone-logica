@@ -111,7 +111,7 @@ h1 {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-    filter: grayscale(30%) contrast(120%);
+    /* filter: grayscale(30%) contrast(120%); */
 }
 
 .character-card:hover .character-image img {
@@ -123,14 +123,22 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+    top: 0;
+    padding: 0.2rem 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.5), transparent);
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.character-info h4 {
+    font-size: 1.25rem;
 }
 
 .character-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
+    font-family: cursive;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
     color: #e2e8f0;
 }

@@ -83,17 +83,15 @@ function resolverCaso() {
     $('#notes-text').append('<hr>');
     $('#notes-text').append('<p>Para resolver essa questão podemos usar o <a href="https://pysathq.github.io/" target="_blank">SAT Solver</a>.</p>');
     $('#notes-text').append('<p>Precisamos antes aplicar a conjunção nas fórmulas acima e converter toda a expressão para FNC.</p>');
-    $('#notes-text').append(`<p>A expressão final no formato DIMACS fica: <b>${fbfDimacs.join(", ")}</b></p>`);
-    
-    // Exibindo apenas a situação sorteada
-    $('#notes-text').append(`<p><b>Situação:</b> ${sorteada}</p>`);
-    
+    $('#notes-text').append(`<p>Esta é a fórmula para ser usada no SAT Solver: <b>${fbfDimacs.join(", ")}</b></p>`);
+    $('#notes-text').append(`<p><b>O que Marcos fez:</b> ${sorteada}</p>`);
     $('#notes-text').append(`
         <div class="d-flex">
-            <button type="button" class="btn btn-primary me-2" onclick="copiarDimacsFinal()">Copiar DIMACS</button>
+            <button type="button" class="btn btn-primary me-2" onclick="copiarDimacsFinal()">Copiar código SAT Solver</button>
             <a href="https://truth-table.com/#${fbfFinal}" target="_blank" class="btn btn-primary">Ver tabela verdade</a>
         </div>
     `);
+    $('#notes-text').append(`<img src="./images/selo-naldo.jpg" style="margin-top: 2rem;">`);
 
     // Removendo evento do modal após caso resolvido
     $('#questionsModal').off('hidden.bs.modal', resolverCaso);
